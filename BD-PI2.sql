@@ -20,9 +20,11 @@ CREATE TABLE Torneios (
    rebuy decimal(8,2),
    addon decimal(8,2),
    premiacao decimal (8,2),
+   deposito decimal (8,2),
+   saque decimal (8,2),
    nome_plataforma varchar(40),
    jogador_id INT,  -- Adicionando a coluna jogador_id
 PRIMARY KEY(id),
 CONSTRAINT fk_jogador
-FOREIGN KEY (jogador_id) REFERENCES JOGADOR (id)  -- Definindo a chave estrangeira
+FOREIGN KEY (jogador_id) REFERENCES JOGADOR(id)
 ) engine=InnoDB;
