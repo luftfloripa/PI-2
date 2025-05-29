@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset='utf-8'>
+   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+   <title> Poker Tracker </title>
+   <meta name='viewport' content='width=device-width, initial-scale=1'>
+   <link rel='stylesheet' type='text/css' media='screen' href='style/flex.css'>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   <script src='main.js'></script>
+
+   <style>
+      html,
+      body {
+         overflow-x: hidden;
+
+      }
+
+      body {
+         padding-top: 42px;
+      }
+
+      .bg-navbar {
+         background-color: #007bff !important;
+      }
+
+      @media (max-width: 991.98px) {
+         .offcanvas-collapse {
+            position: fixed;
+            top: 46px;
+            bottom: 0;
+            left: -100%;
+            width: 100%;
+            padding-right: 1rem;
+            padding-left: 1rem;
+            overflow-y: auto;
+            visibility: hidden;
+            background-color: #238af8;
+            transition: transform .3s ease-in-out, visibility .3s ease-in-out;
+         }
+
+         .offcanvas-collapse.open {
+            visibility: visible;
+            transform: translateX(100%);
+         }
+      }
+
+      .tela {
+         height: 100vh;
+         padding-top: 1rem;
+         padding-bottom: 5em;
+         padding-left: 1.5rem;
+         padding-right: 1.5rem;
+         background-color: white;
+         border-color: gray;
+         overflow-y: auto;
+      }
+
+      .login-header {
+         padding: 64px;
+         text-align: center;
+         margin-top: 0;
+         margin-bottom: 4%;
+         min-width: 350px;
+      }
+
+      .form-floating {
+         max-width: 280px;
+         margin: 0 auto 1rem auto;
+      }
+
+      .form-control {
+         border: none;
+         border-bottom: 1px solid #333;
+         border-radius: 0;
+         box-shadow: none;
+      }
+
+      form .btn-primary {
+         border: none;
+         border-radius: 0;
+         max-width: 280px;
+         margin: 0 auto;
+         display: block;
+      }
+
+      .img-btn {
+         display: block;
+         margin: 10px auto 0;
+         text-align: center;
+      }
+
+      .bg-color {
+         background-color: #007bff;
+      }
+
+   </style>
+
+</head>
+
+<body>
+
+   <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-navbar" aria-label="Main navigation">
+      <div class="container-fluid">
+
+         <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+
+         <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+
+            <ul class="navbar-nav mb-2 mb-lg-0">
+               <li class="nav-item">
+                  <button class="nav-link btn btn-link active" onclick="navega('inicial')">Poker Tracker</button>
+               </li>
+               <li class="nav-item">
+                  <button class="nav-link btn btn-link" onclick="navega('inicial')">Inicial</button>
+               </li>
+               <li class="nav-item">
+                  <button class="nav-link btn btn-link" onclick="navega('principal')">Principal</button>
+               </li>
+               <li class="nav-item">
+                  <button class="nav-link btn btn-link" onclick="navega('alternativa')">Alternativa</button>
+               </li>
+               
+            </ul>
+
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+               <li class="nav-item">
+                  <form class="d-flex me-5" role="search" onsubmit="event.preventDefault(); pesquisar();">
+                    <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
+                    <button class="btn btn-outline-info" type="submit">Pesquisar</button>
+                  </form>
+                </li>
+               <li class="nav-item dropdown">
+                  <button class="nav-link btn btn-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                     Idioma
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                     <li><button class="dropdown-item" onclick="navega('opcaoA')">Opção A</button></li>
+                     <li><button class="dropdown-item" onclick="navega('opcaoB')">Opção B</button></li>
+                     <li><button class="dropdown-item" onclick="navega('outraOpcao')">Outra Opção</button></li>
+                  </ul>
+               </li>
+
+               <li class="nav-item dropdown">
+                  <button class="nav-link btn btn-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                     Conta
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                     <li><button class="dropdown-item" onclick="navega('opcaoA')">Opção A</button></li>
+                     <li><button class="dropdown-item" onclick="navega('opcaoB')">Opção B</button></li>
+                     <li><button class="dropdown-item" onclick="navega('outraOpcao')">Outra Opção</button></li>
+                  </ul>
+               </li>
+            </ul>
+
+         </div>
+      </div>
+   </nav>
+
+   <div id="inicial" class="tela show">
+      <div class="login-container mt-5">
+         <main class="form-signin w-100 m-auto">
+            <form onsubmit="return false;">
+               <div class="row align-items-start">
+                  <div class="col-md-6">
+                     <div class="login-header bg-color text-white">
+                        <h1> Bem-vindo(a)! </h1>
+                        <h1> Bora entrar & </h1>
+                        <h1> Checar os Nºs </h1>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="form-floating">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="Apelido">
+                        <label for="floatingInput"> Usuário </label>
+                     </div>
+                     <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Senha">
+                        <label for="floatingPassword"> Senha </label>
+                     </div>
+
+
+                     <button class="btn btn-primary w-100 py-2" type="submit" onclick="navega('principal')"> Entrar
+                     </button>
+
+                     <button class="img-btn border-0 bg-transparent p-0" onclick="navega('recuperacaoConta')"> Esqueceu sua
+                        senha? Clique aqui! </button>
+                     <button class="img-btn border-0 bg-transparent p-0" onclick="navega('cadastro')"> Não possui conta?
+                        Cadastre-se! </button>
+                  </div>
+            </form>
+         </main>
+      </div>
+   </div>
+
+   <div id="cadastro" class="tela collapse">
+      <div class="login-container">
+         <main class="form-signin w-100 m-auto">
+            <form onsubmit="return false;">
+                 
+               <div class="login-header">
+                  <h1> Nova Conta </h1>
+               </div>
+ 
+               <div class="form-floating">
+                  <input type="email" class="form-control" id="floatingInput" placeholder="Nome">
+                  <label for="floatingInput"> Nome </label>
+               </div>
+               <div class="form-floating">
+                  <input type="password" class="form-control" id="floatingPassword" placeholder="Sobrenome">
+                  <label for="floatingPassword"> Sobrenome </label>
+               </div>
+               <div class="form-floating">
+                  <input type="email" class="form-control" id="floatingInput" placeholder="email@exemplo.com">
+                  <label for="floatingInput"> E-mail </label>
+               </div>
+               <div class="form-floating">
+                  <input type="email" class="form-control" id="floatingInput" placeholder="Apelido">
+                  <label for="floatingInput"> Nome de Usuário </label>
+               </div>
+               <div class="form-floating">
+                  <input type="password" class="form-control" id="floatingPassword" placeholder="Senha">
+                  <label for="floatingPassword"> Senha </label>
+               </div>
+ 
+                 
+               <button class="btn btn-primary w-100 py-2" type="submit" onclick="navega('inicial')"> Cadastrar </button>
+                 
+            </form>
+         </main>
+      </div>
+   </div>
+
+   <div id="principal" class="tela collapse">
+      <h1>Principal</h1>
+      <section class="painel py-5">
+
+      </section>
+   </div>
+
+   <div id="alternativa" class="tela collapse">
+      <h1>Alternativa</h1>
+      <div class="container py-5">
+
+      </div>
+   </div>
+
+   <div id="recuperacaoConta" class="tela collapse">
+      <h1>Recuperação de Conta</h1>
+      <div class="container py-5">
+
+      </div>
+   </div>
+
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"></script>
+   <script>
+      function navega(destino) {
+         let telas = document.getElementsByClassName('tela')
+         Array.from(telas).forEach(element => {
+            element.classList.remove('show')
+            element.classList.add('collapse')
+         });
+         document.getElementById(destino).classList.remove('collapse')
+         document.getElementById(destino).classList.add('show')
+      }
+
+      function alternativaImagem(url) {
+         const img = document.querySelector('#alternativa .image-container img');
+         img.src = url;
+         img.alt = 'Imagem selecionada';
+         navega('alternativa');
+      }
+
+      (() => {
+         document.querySelector('#navbarSideCollapse').addEventListener('click', () => {
+         document.querySelector('.offcanvas-collapse').classList.toggle('open')
+         })
+      })()
+
+   </script>
+</body>
+
+</html>

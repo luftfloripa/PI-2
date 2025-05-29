@@ -1,0 +1,27 @@
+Sprint 1 - deverá conter o planejamento
+
+Sprint 2 - conterá o planejamento e o itens do planejamento já realizados.
+
+Sprint 3 - Irá conter os arquivos já produzidos e mostrar o que entregará na próxima sprint.
+
+Sprint 4 - Irá conter os arquivos já produzidos e mostrar o que entregará na próxima sprint.
+
+Sprint 5 - Irá conter os arquivos já produzidos e mostrar o que entregará na próxima sprint.
+
+
+
+
+Entrega de Sprints
+
+Sprint 1 - fazer/terminar as telas (front end), cadastro de usuário, cadastro de jogos e cadastro das plataformas
+
+1 - Apresentamos as telas mencionadas e as tabelas de banco de dados em UML (Astah) (não entregamos nenhum arquivo no moodle)
+1.2 - Arquivos pokertracker2.html e BD-PI2.sql compartilhados no drive.
+
+2 - Correção das tabelas de banco de dados e novo alinhamento estratégico de desenvolvimento.
+2.1 - Diminuição do número de tabelas, para duas únicas. 
+
+
+
+
+Sprint 2 - deverá conter o planejamento e os itens já realizados.

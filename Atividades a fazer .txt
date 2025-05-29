@@ -1,0 +1,14 @@
+Sprint 1 deverá ser feito e entregue no dia 24/4 contendo o planejamento
+
+Sprint 2 - deverá conter o planejamento e os itens já realizados.
+
+
+------
+
+sprint 1 - fazer/terminar as telas (front end), cadastro de usuário, cadastro de jogos e cadastro das plataformas
+
+
+
+15/05/2025
+
+Planejamento
